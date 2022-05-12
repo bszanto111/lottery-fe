@@ -1,0 +1,33 @@
+#game-container {
+  width: 904px;
+}
+
+#game-panels-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+app-game-panel {
+  margin-right: 16px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+#play-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+#play-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 48px;
+  cursor: pointer;
+  font-size: 32px;
+  color: white;
+  background-color: #df0026;
+  margin-top: 24px;
+}

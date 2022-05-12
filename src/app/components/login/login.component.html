@@ -1,0 +1,24 @@
+<div id="login-box">
+  <h1>Lottery</h1>
+  <hr>
+  <h3>Login</h3>
+  <div *ngFor="let user of users" class="user-item" (click)="selectUser($event, user)">
+    {{ user.id }} - {{ user.name }}
+  </div>
+  <form (ngSubmit)="login()">
+    <div class="login-input-field">
+      User ID:
+      <input id="selected-user-id-input-field" type="text"
+        [(ngModel)]="selectedUserId" name="selectedUserId">
+    </div>
+    <div class="login-input-field">
+      Password:
+      <input id="password-input-field" type="text"
+        [(ngModel)]="password" name="password">
+    </div>
+    <div *ngIf="!!errorMessage" id="error-message">
+      {{ errorMessage }}
+    </div>
+    <button type="submit">Login</button>
+  </form>
+</div>

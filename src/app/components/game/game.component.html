@@ -1,0 +1,15 @@
+<div id="game-container">
+  <div id="game-panels-container">
+    <app-game-panel
+      *ngFor="let indexOfPanel of [0,1,2,3]"
+      (selectedNumbersChange)="updateNumberSelection($event, indexOfPanel)"
+      [numberOfPanel]="indexOfPanel + 1">
+    </app-game-panel>
+  </div>
+  <div id="play-button-container">
+    <div id="play-button" (click)="play()">
+      Play
+    </div>
+  </div>
+  <h2 *ngFor="let result of results">{{ result }}</h2>
+</div>

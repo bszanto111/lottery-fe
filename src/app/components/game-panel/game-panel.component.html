@@ -1,0 +1,25 @@
+<div class="game-panel-header">
+  <div class="game-panel-button" (click)="selectRandomNumbers()">
+    <i class="material-icons game-panel-button-icon">shuffle</i>
+    RND
+  </div>
+  <div class="game-panel-button" (click)="deleteNumberSelection()">
+    <i class="material-icons game-panel-button-icon">delete</i>
+    Del
+  </div>
+</div>
+<div class="game-container">
+  <div class="panel-number">{{ numberOfPanel }}</div>
+  <div class="numbers-container">
+    <div class="number-box-container"
+        *ngFor="let numberInBox of numbers"
+        (click)="toggleNumberSelection($event, numberInBox)">
+      <div class="number-box">
+        {{ numberInBox }}
+      </div>
+      <div *ngIf="selectedNumbers.has(numberInBox)" class="cross-sign">
+        X
+      </div>
+    </div>
+  </div>
+</div>
