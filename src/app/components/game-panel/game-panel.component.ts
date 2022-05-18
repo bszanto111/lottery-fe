@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RandomNumberGeneratorService } from 'src/app/services/random-number-generator.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-game-panel',
@@ -23,9 +24,13 @@ export class GamePanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async selectRandomNumbers(): Promise<void> {
-    this.selectedNumbers = await this.randomNumberGeneratorService.getGeneratedRandomNumbers(6);
-    this.selectedNumbersChange.emit(this.selectedNumbers);
+  selectRandomNumbers(): void {
+    this.randomNumberGeneratorService.getGeneratedRandomNumbers(6)
+      .pipe(take(1))
+      .subscribe(generatedRandomNumbers => {
+        this.selectedNumbers = new Set<number>(generatedRandomNumbers);
+        this.selectedNumbersChange.emit(this.selectedNumbers);
+      });
   }
 
   deleteNumberSelection(): void {
@@ -43,3 +48,4 @@ export class GamePanelComponent implements OnInit {
     this.selectedNumbersChange.emit(this.selectedNumbers);
   }
 }
+

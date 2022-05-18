@@ -1,4 +1,5 @@
 <div id="game-container">
+  <button (click)="logout()">Logout</button>
   <div id="game-panels-container">
     <app-game-panel
       *ngFor="let indexOfPanel of [0,1,2,3]"
