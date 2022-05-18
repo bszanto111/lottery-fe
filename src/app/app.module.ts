@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { InputTextModule } from 'primeng/inputtext';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { PasswordModule } from 'primeng/password';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +24,11 @@ import { GamePanelComponent } from './components/game-panel/game-panel.component
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
-    FormsModule
+    FormsModule,
+    InputTextModule,
+    CardModule,
+    ButtonModule,
+    PasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]
