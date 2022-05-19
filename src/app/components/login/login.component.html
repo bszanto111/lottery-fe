@@ -1,24 +1,27 @@
-<div id="login-box">
-  <h1>Lottery</h1>
-  <hr>
-  <h3>Login</h3>
-  <div *ngFor="let user of users" class="user-item" (click)="selectUser($event, user)">
-    {{ user.id }} - {{ user.name }}
-  </div>
-  <form (ngSubmit)="login()">
+<p-card id="login-box">
+  <ng-template pTemplate="header">
+    <h2>Lottery</h2>
+  </ng-template>
+  <div id="login-box-subheader"><h3>Login</h3></div>
+  <form [formGroup]="loginForm">
     <div class="login-input-field">
-      User ID:
-      <input id="selected-user-id-input-field" type="text"
-        [(ngModel)]="selectedUserId" name="selectedUserId">
+      <p-dropdown id="user-dropdown" formControlName="userDropdown"
+        placeholder="Select a User" [options]="userSelectItems">
+      </p-dropdown>
     </div>
-    <div class="login-input-field">
-      Password:
-      <input id="password-input-field" type="text"
-        [(ngModel)]="password" name="password">
+    <div class="field login-input-field">
+      <label for="selected-user-id-input-field" class="login-input-label">User ID</label>
+      <input id="selected-user-id-input-field" type="text" pInputText
+        formControlName="userIdInput">
+    </div>
+    <div class="field login-input-field">
+      <label for="password-input-field" class="login-input-label">Password</label>
+      <input id="password-input-field" type="password" pPassword
+        formControlName="password" [feedback]="false">
     </div>
     <div *ngIf="!!errorMessage" id="error-message">
       {{ errorMessage }}
     </div>
-    <button type="submit">Login</button>
+    <button pButton type="submit" label="Login" (click)="login()"></button>
   </form>
-</div>
+</p-card>

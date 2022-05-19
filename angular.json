@@ -36,6 +36,10 @@
             "scripts": []
           },
           "configurations": {
+            "development": {
+              "sourceMap": true,
+              "optimization": false
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -72,6 +76,9 @@
             "browserTarget": "lottery-fe:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "lottery-fe:build:development"
+            },
             "production": {
               "browserTarget": "lottery-fe:build:production"
             }

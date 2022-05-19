@@ -1,12 +1,25 @@
 #login-box {
   position: absolute;
   width: 300px;
-  height: 500px;
   top: 50%;
   left: 50%;
-  margin: -250px 0 0 -150px;
-  border: 1px solid;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+:host ::ng-deep .p-card-header {
   text-align: center;
+  border-bottom: 1px solid lightgrey;
+  padding-top: 5px;
+}
+
+#login-box-subheader {
+  text-align: center;
+}
+
+:host ::ng-deep .p-card-content {
+  padding: 0;
 }
 
 #error-message {
@@ -16,9 +29,13 @@
 
 .login-input-field {
   margin-bottom: 16px;
+  .login-input-label {
+    display: block;
+  }
 }
 
-.user-item {
-  cursor: pointer;
-  margin-bottom: 8px;
+form > button,
+:host ::ng-deep .p-dropdown,
+:host ::ng-deep .p-inputtext {
+  width: 100%;
 }
