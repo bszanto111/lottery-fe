@@ -10,12 +10,14 @@ describe('workspace-project App', () => {
 
   it('should display user list', () => {
     page.navigateTo();
-    const firstUserData = element(by.css('.user-item:nth-of-type(1)')).getText();
-    expect(firstUserData).toBe('1234 - bszanto');
-    const secondUserData = element(by.css('.user-item:nth-of-type(2)')).getText();
-    expect(secondUserData).toBe('2345 - tszabo');
-    const thirdUserData = element(by.css('.user-item:nth-of-type(3)')).getText();
-    expect(thirdUserData).toBe('3456 - ttoth');
+    element(by.css('.p-dropdown-trigger')).click().then(() => {
+      const firstUserData = element(by.css('p-dropdownitem:nth-of-type(1)')).getText();
+      expect(firstUserData).toBe('1234 - bszanto');
+      const secondUserData = element(by.css('p-dropdownitem:nth-of-type(2)')).getText();
+      expect(secondUserData).toBe('2345 - tszabo');
+      const thirdUserData = element(by.css('p-dropdownitem:nth-of-type(3)')).getText();
+      expect(thirdUserData).toBe('3456 - ttoth');
+    });
   });
 
   afterEach(async () => {

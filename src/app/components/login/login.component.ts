@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.users = users;
         this.userSelectItems = users.map(user => {
           return {
-            label: user.id + "-" + user.name,
+            label: user.id + " - " + user.name,
             value: user
           }
         });

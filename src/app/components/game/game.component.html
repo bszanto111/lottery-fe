@@ -1,13 +1,13 @@
 <div id="game-container">
-  <button (click)="logout()">Logout</button>
-  <div id="game-panels-container">
-    <app-game-panel
+  <button pButton id="logout-button" type="button" label="Logout" (click)="logout()"></button>
+  <div class="grid">
+    <app-game-panel class="col-12 sm:col-6 lg:col-3"
       *ngFor="let indexOfPanel of [0,1,2,3]"
       (selectedNumbersChange)="updateNumberSelection($event, indexOfPanel)"
       [numberOfPanel]="indexOfPanel + 1">
     </app-game-panel>
   </div>
-  <div id="play-button-container">
+  <div class="flex lg:justify-content-center">
     <div id="play-button" (click)="play()">
       Play
     </div>
